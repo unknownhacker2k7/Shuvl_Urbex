@@ -1,84 +1,77 @@
+function openLoc(folder, title, desc, ytUrl) {
+    // Encodes the data so it can be sent in the URL to location.html
+    const url = `location.html?folder=${folder}&title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&yt=${encodeURIComponent(ytUrl)}`;
+    window.location.href = url;
+}
+
+function handleMissingImg(element) {
+    element.parentElement.classList.add('error-bg');
+    element.style.display = 'none';
+}
+
+function filterLand(land) {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        if (card.classList.contains('corrupted-card')) {
+            card.style.display = (land === 'all') ? 'block' : 'none';
+        } else {
+            card.style.display = (land === 'all' || card.classList.contains(land)) ? 'block' : 'none';
+        }
+    });
+}
+
 let currentSlide = 0;
 let slides = [];
 
-/**
- * Main loader function triggered on window.onload
- */
 function autoLoadImages() {
     const params = new URLSearchParams(window.location.search);
     const folder = params.get('folder');
     if (!folder) return;
 
-    // 1. Populate Text Metadata
-    const title = params.get('title') || "UNKNOWN_LOCATION";
-    document.getElementById('locTitle').innerText = title;
-    document.getElementById('locTitle').setAttribute('data-text', title);
-    document.getElementById('locDesc').innerText = params.get('desc') || "No data available for this sector.";
-    document.getElementById('ytLink').href = params.get('yt') || "#";
+    // Pulls the Title, Description, and YouTube link from the URL
+    document.getElementById('locTitle').innerText = params.get('title');
+    document.getElementById('locTitle').setAttribute('data-text', params.get('title'));
+    document.getElementById('locDesc').innerText = params.get('desc');
+    document.getElementById('ytLink').href = params.get('yt');
 
     const grid = document.getElementById('photoGrid');
     const slider = document.getElementById('slider');
 
-    // 2. Loop through potential image sequence (1-25)
     for (let i = 1; i <= 25; i++) {
-        const pathBase = `images/${folder}/${i}`;
-        tryLoadImage(pathBase, grid, slider);
+        let img = new Image();
+        let basePath = `images/${folder}/${i}`;
+        
+        // Try lowercase first
+        img.src = `${basePath}.jpg`;
+
+        img.onload = function() {
+            let gImg = document.createElement('img');
+            gImg.src = this.src;
+            
+            let sImg = document.createElement('img');
+            sImg.src = this.src;
+            sImg.className = 'slider-img';
+            
+            gImg.onclick = () => { 
+                currentSlide = slides.indexOf(sImg); 
+                updateSlider(); 
+            };
+
+            grid.appendChild(gImg);
+            if (slides.length === 0) sImg.classList.add('active');
+            slider.appendChild(sImg);
+            slides.push(sImg);
+        };
+
+        // If .jpg fails, try .JPG
+        img.onerror = function() {
+            if (this.src.endsWith('.jpg')) {
+                this.src = `${basePath}.JPG`;
+            }
+        };
     }
 }
 
-/**
- * Handles the dual-extension check (.jpg vs .JPG)
- */
-function tryLoadImage(pathBase, grid, slider) {
-    let img = new Image();
-    
-    // Attempt lowercase first
-    img.src = `${pathBase}.jpg`;
-
-    img.onload = function() {
-        createGalleryElements(this.src, grid, slider);
-    };
-
-    img.onerror = function() {
-        // If lowercase fails, try uppercase
-        this.onerror = null; // Prevent infinite loops
-        this.src = `${pathBase}.JPG`;
-        
-        // If uppercase also fails, it will just not trigger onload
-    };
-}
-
-/**
- * Appends images to both the grid and the top slider
- */
-function createGalleryElements(src, grid, slider) {
-    // Create Grid Item
-    let gImg = document.createElement('img');
-    gImg.src = src;
-    
-    // Create Slider Item
-    let sImg = document.createElement('img');
-    sImg.src = src;
-    sImg.className = 'slider-img';
-    
-    // Set click event to jump to slide
-    gImg.onclick = () => { 
-        currentSlide = slides.indexOf(sImg); 
-        updateSlider(); 
-    };
-    
-    grid.appendChild(gImg);
-
-    // Initial Active State
-    if (slides.length === 0) sImg.classList.add('active');
-    
-    slider.appendChild(sImg);
-    slides.push(sImg);
-}
-
-/**
- * Slider Navigation Controls
- */
 function changeSlide(n) {
     if (slides.length === 0) return;
     slides[currentSlide].classList.remove('active');
@@ -88,19 +81,8 @@ function changeSlide(n) {
 
 function updateSlider() {
     slides.forEach(s => s.classList.remove('active'));
-    slides[currentSlide].classList.add('active');
+    if (slides[currentSlide]) {
+        slides[currentSlide].classList.add('active');
+    }
     window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-/**
- * Archive Page Helpers (Included for completeness)
- */
-function openLoc(folder, title, desc, ytUrl) {
-    const url = `location.html?folder=${folder}&title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&yt=${encodeURIComponent(ytUrl)}`;
-    window.location.href = url;
-}
-
-function handleMissingImg(element) {
-    element.parentElement.classList.add('error-bg');
-    element.style.display = 'none';
 }
