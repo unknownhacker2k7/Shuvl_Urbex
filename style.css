@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+:root {
+    --urbex-red: #ff0000;
+    --dark-bg: #050505;
+    --border: #1a1a1a;
+}
+
+body { background-color: var(--dark-bg); color: #eee; font-family: 'Oswald', sans-serif; margin: 0; overflow-x: hidden; }
+
+/* --- GLITCH --- */
+.glitch { position: relative; display: inline-block; }
+.glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark-bg); }
+.glitch::before { left: 2px; text-shadow: -2px 0 #fff; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 5s infinite linear alternate-reverse; }
+.glitch::after { left: -2px; text-shadow: -2px 0 var(--urbex-red); clip: rect(44px, 450px, 56px, 0); animation: glitch-anim2 5s infinite linear alternate-reverse; }
+
+@keyframes glitch-anim { 0% { clip: rect(10px, 9999px, 20px, 0); } 100% { clip: rect(40px, 9999px, 50px, 0); } }
+@keyframes glitch-anim2 { 0% { clip: rect(30px, 9999px, 40px, 0); } 100% { clip: rect(70px, 9999px, 80px, 0); } }
+
+/* --- ARCHIVE GRID --- */
+.archive-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-top: 1px solid var(--border); }
+@media (max-width: 1200px) { .archive-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .archive-grid { grid-template-columns: 1fr; } }
+
+.card { position: relative; height: 500px; background: #000; overflow: hidden; cursor: pointer; }
+.img-container { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #000; }
+.card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(0.4); transition: 0.8s; }
+.card:hover img { filter: grayscale(0%) brightness(0.8); transform: scale(1.05); }
+
+.card-info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(transparent, #000 80%); box-sizing: border-box; }
+.ref-id { font-family: 'Share Tech Mono'; color: var(--urbex-red); font-size: 0.7rem; }
+.card h3 { margin: 5px 0; letter-spacing: 1px; }
+
+/* DESCRIPTION BRIEF STYLE */
+.loc-brief { 
+    font-family: 'Share Tech Mono'; 
+    font-size: 0.75rem; 
+    color: #666; 
+    margin: 0; 
+    line-height: 1.4;
+    max-width: 90%;
+}
+
+/* --- PERMANENT MISSING DATA STYLE --- */
+.corrupted-card { cursor: default; opacity: 0.5; }
+.missing-data-aesthetic { 
+    background: repeating-linear-gradient(45deg, #000, #000 10px, #050505 10px, #050505 20px);
+    font-family: 'Share Tech Mono';
+    color: #222;
+}
+
+/* --- UI --- */
+.flicker-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255,0,0,0.03) 0%, transparent 90%); pointer-events: none; z-index: 2000; animation: flicker 6s infinite; }
+@keyframes flicker { 0%, 10%, 100% { opacity: 1; } 11% { opacity: 0.4; } }
+nav { display: flex; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid var(--border); background: #000; }
+.logo span { color: var(--urbex-red); font-weight: bold; }
+.nav-links a { color: #555; text-decoration: none; margin-left: 20px; font-family: 'Share Tech Mono'; }
+.nav-links a.active { color: var(--urbex-red); }
+header { padding: 60px 40px; }
+.status-bar { font-family: 'Share Tech Mono'; color: #333; font-size: 0.8rem; margin-top: 10px; }
+.filter-btn { background: transparent; border: 1px solid #222; color: #555; padding: 10px 20px; cursor: pointer; font-family: 'Share Tech Mono'; margin-right: 10px; }
+.filter-btn:hover { color: #fff; border-color: var(--urbex-red); }
+
+/* --- LOCATION PAGE STYLES --- */
+.slider-wrapper { position: relative; width: 100%; height: 70vh; background: #000; border-bottom: 2px solid var(--urbex-red); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.slider-img { width: 100%; height: 100%; object-fit: contain; display: none; animation: fadeIn 0.5s; }
+.slider-img.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; padding: 40px; }
+.photo-grid img { width: 100%; height: 300px; object-fit: cover; filter: grayscale(40%) brightness(0.7); border: 1px solid #1a1a1a; transition: 0.5s; cursor: pointer; }
+.photo-grid img:hover { filter: grayscale(0%) brightness(1); border-color: var(--urbex-red); }
+.yt-btn { display: inline-block; padding: 15px 30px; border: 1px solid var(--urbex-red); color: var(--urbex-red); text-decoration: none; font-family: 'Share Tech Mono'; margin: 20px 40px; }
+.slider-nav { position: absolute; top: 50%; background: rgba(0,0,0,0.8); color: white; border: 1px solid var(--urbex-red); padding: 15px; cursor: pointer; z-index: 10; font-family: 'Share Tech Mono'; }

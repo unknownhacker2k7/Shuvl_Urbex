@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHUVL | FORGOTTEN ARCHIVE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="flicker-overlay"></div>
+    
+    <nav>
+        <div class="logo">SHUVL<span>URBEX</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="active">ARCHIVE</a>
+            <a href="about.html">ABOUT</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1 class="glitch" data-text="FORGOTTEN_ARCHIVE">FORGOTTEN_<span>ARCHIVE</span></h1>
+        <div class="status-bar">SECURE_CONNECTION: ACTIVE // ENCRYPTION: ON // 2026_GEN</div>
+        
+        <div class="filter-container">
+            <button class="filter-btn" onclick="filterLand('all')">ALL_DATA</button>
+            <button class="filter-btn" onclick="filterLand('nederland')">NL_SECTOR</button>
+            <button class="filter-btn" onclick="filterLand('belgie')">BE_SECTOR</button>
+            <button class="filter-btn" onclick="filterLand('frankrijk')">FR_SECTOR</button>
+            <button class="filter-btn" onclick="filterLand('duitsland')">DE_SECTOR</button>
+        </div>
+    </header>
+
+    <main class="archive-grid">
+        <div class="card belgie" onclick="openLoc('loc1', 'KV-70', 'Power Plant High Voltage, also known as KV-70, is an abandoned Belgian power station that once distributed electricity to several nearby steel factories. Closed as heavy industry declined in the region, the site is now a striking example of industrial heritage. The building is split between a former power generation hall and an electrical distribution station. While much of the machinery is gone, the remaining control panels, clock, and large windowed hall still convey the scale and atmosphere of the site. Natural light flooding through the tall bay windows gives the empty space a dramatic and almost majestic feel, especially during golden hour.', 'https://youtube.com/watch?v=1')">
+            <div class="img-container"><img src="images/loc1/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_294</div>
+                <h3>KV-70</h3>
+                <p class="loc-brief">Industrial power station. Atmospheric ruins with major decay</p>
+            </div>
+        </div>
+
+        <!-- <div class="card belgie" onclick="openLoc('loc2', 'HFB steel factory', 'This old power plant in the Liège regThe HFB steel factory in Liège is a vast abandoned industrial site that once formed part of the region’s powerful steel industry. Active during the peak of heavy industrial production, the plant played an important role in steel processing and employment in the area. Following the decline of the steel sector, the factory was gradually shut down and left to decay. Today, the complex consists of large production halls, rusting structures, and remnants of machinery, offering a raw and atmospheric insight into Liège’s industrial past and the scale of its former activity.ion once played a key role in supplying electricity to the surrounding industrial sites. Built during the height of heavy industry, it reflects the scale and ambition of the area’s industrial past. Following the decline of local industry, the site was shut down and left to decay. Today, the abandoned structures, empty halls, and remaining technical elements create a striking atmosphere, making it a powerful witness to Liège’s industrial heritage.', 'https://youtube.com/watch?v=2')">
+            <div class="img-container"><img src="images/loc2/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_112</div>
+                <h3>HFB steel factory</h3>
+                <p class="loc-brief">bandoned HFB steel factory in Liège, a remnant of the region’s steel industry.</p>
+            </div>
+        </div> -->
+
+        <div class="card belgie" onclick="openLoc('loc3', 'Villa Victoria', 'Villa Victoria is an abandoned residence in Belgium with very little known about its history. The property has fallen into significant decay, with much of the structure deteriorating over time. The driveway has collapsed, adding to the sense of abandonment, while the villa itself stands as a silent witness to the past. Despite its ruined state, the building retains a haunting charm, drawing attention from explorers and photographers alike.', 'https://youtube.com/watch?v=3')">
+            <div class="img-container"><img src="images/loc3/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_882</div>
+                <h3>Villa Victoria</h3>
+                <p class="loc-brief">An abandoned villa perched on elevated, mountainous terrain in Belgium.</p>
+            </div>
+        </div>
+
+        <div class="card belgie" onclick="openLoc('loc4', 'Charleroi Power Plant', 'The Charleroi power plant is an abandoned industrial site in Belgium, once responsible for supplying electricity to the surrounding area. With its massive halls, rusting machinery, and empty control rooms, the site reflects the decline of heavy industry in the region. Years of neglect have left the plant in a state of advanced decay, yet its scale and industrial architecture make it a striking location for exploration and photography.', 'https://youtube.com/watch?v=4')">
+            <div class="img-container"><img src="images/loc4/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_001</div>
+                <h3>Charleroi Power Plant</h3>
+                <p class="loc-brief">Charleroi power plant: empty halls and rusting machinery.</p>
+            </div>
+        </div>
+
+        <div class="card belgie" onclick="openLoc('loc5', 'The Forgotten Tower', 'Hidden in the open fields near Estinnes, close to the French border, this abandoned site is a striking blend of rural and urban decay. A solitary tower rises amidst a cluster of rundown buildings, all encircled by fences topped with barbed wire. While the tower’s original purpose remains unclear, the surrounding structures are now mostly in ruins. Some parts of the land are still in use, with one building repurposed for hay storage, giving the site a unique mix of abandonment and ongoing rural life. Its secluded location and dramatic decay make it a compelling spot for urbex enthusiasts.', 'https://youtube.com/watch?v=5')">
+            <div class="img-container"><img src="images/loc5/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_009</div>
+                <h3>The Forgotten Tower</h3>
+                <p class="loc-brief">Abandoned tower and ruins in the fields near Estinnes, with some buildings still used for hay.</p>
+            </div>
+        </div>
+
+        <div class="card belgie" onclick="openLoc('loc6', 'Lanaken Manor', 'Hidden in Lanaken, Belgium, this abandoned elderly home is a haunting glimpse into the past. Left untouched for years, some rooms remain frozen in time—beds still made with sheets, wardrobes filled with old clothes, and paintings hanging on the walls. The site captures the eerie quiet of forgotten lives, making it a unique and atmospheric location for exploration.', 'https://www.youtube.com/watch?v=6Zuxzw-ffuo')">
+            <div class="img-container"><img src="images/loc6/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_771</div>
+                <h3>Lanaken Manor</h3>
+                <p class="loc-brief">Abandoned elderly home in Lanaken, frozen in time with bedsheets still on beds and personal belongings left behind.</p>
+            </div>
+        </div>
+
+        <!-- <div class="card frankrijk" onclick="openLoc('loc7', 'HOTEL ECHO', 'Mountain ghosts.', 'https://youtube.com/watch?v=7')">
+            <div class="img-container"><img src="images/loc7/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: FR_332</div>
+                <h3>HOTEL ECHO</h3>
+                <p class="loc-brief">High-altitude resort. Vacated due to unstable terrain.</p>
+            </div>
+        </div> -->
+
+        <!-- <div class="card duitsland" onclick="openLoc('loc8', 'POWER CORE', 'Industrial turbine hall.', 'https://youtube.com/watch?v=8')">
+            <div class="img-container"><img src="images/loc8/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: DE_992</div>
+                <h3>POWER CORE</h3>
+                <p class="loc-brief">Decommissioned power plant. Asbestos hazard detected.</p>
+            </div>
+        </div> -->
+
+        <div class="card corrupted-card">
+            <div class="img-container missing-data-aesthetic">
+                <span>[ DATA_ENCRYPTED ]</span>
+            </div>
+            <div class="card-info">
+                <div class="ref-id">REF: ERR_404</div>
+                <h3>[ REDACTED ]</h3>
+                <p class="loc-brief">Unauthorized access. Signal lost.</p>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
