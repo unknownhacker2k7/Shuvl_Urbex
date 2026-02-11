@@ -1,133 +1,119 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHUVL | FORGOTTEN ARCHIVE</title>
-    <meta name="description" content="Shuvl Urbex is a curated archive of abandoned places, documented for atmosphere, history, and visual remnants. Explore recent locations and field notes from the archive.">
-    <meta name="theme-color" content="#050505">
-
-    <meta property="og:title" content="SHUVL | FORGOTTEN ARCHIVE">
-    <meta property="og:description" content="A curated archive of abandoned places, documented for atmosphere, history, and visual remnants.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="images/loc1/1.JPG">
-    <meta property="og:image:alt" content="Abandoned industrial interior from the Shuvl Urbex archive">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SHUVL | FORGOTTEN ARCHIVE">
-    <meta name="twitter:description" content="A curated archive of abandoned places, documented for atmosphere, history, and visual remnants.">
-    <meta name="twitter:image" content="images/loc1/1.JPG">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="home">
-    <div class="terrain-field">
-        <div class="terrain-grid"></div>
-        <div class="terrain-contours"></div>
-        <div class="terrain-stains"></div>
-    </div>
-
+<body>
+    <div class="flicker-overlay"></div>
+    
     <nav>
         <div class="logo">SHUVL<span>URBEX</span></div>
         <div class="nav-links">
-            <a href="index.html" class="active">HOME</a>
-            <a href="archive.html">ARCHIVE</a>
+            <a href="index.html" class="active">ARCHIVE</a>
             <a href="about.html">ABOUT</a>
         </div>
     </nav>
 
-    <main class="home-layout">
-        <section class="home-hero simple-hero">
-            <div class="hero-meta">
-                <div class="ref-id">REF: HOME_NODE_001</div>
-                <div class="status-bar">SECURE_CONNECTION: ACTIVE // ENCRYPTION: ON // 2026_GEN</div>
+    <header>
+        <h1 class="glitch" data-text="FORGOTTEN_ARCHIVE">FORGOTTEN_<span>ARCHIVE</span></h1>
+        <div class="status-bar">SECURE_CONNECTION: ACTIVE // ENCRYPTION: ON // 2026_GEN</div>
+        
+        <div class="filter-container">
+            <button class="filter-btn" onclick="filterLand('all')">ALL_DATA</button>
+            <button class="filter-btn" onclick="filterLand('nederland')">NL_SECTOR</button>
+            <button class="filter-btn" onclick="filterLand('belgie')">BE_SECTOR</button>
+            <button class="filter-btn" onclick="filterLand('frankrijk')">FR_SECTOR</button>
+            <button class="filter-btn" onclick="filterLand('duitsland')">DE_SECTOR</button>
+        </div>
+    </header>
+
+    <main class="archive-grid">
+        <div class="card belgie" onclick="openLoc('loc1', 'KV-70', 'Power Plant High Voltage, also known as KV-70, is an abandoned Belgian power station that once distributed electricity to several nearby steel factories. Closed as heavy industry declined in the region, the site is now a striking example of industrial heritage. The building is split between a former power generation hall and an electrical distribution station. While much of the machinery is gone, the remaining control panels, clock, and large windowed hall still convey the scale and atmosphere of the site. Natural light flooding through the tall bay windows gives the empty space a dramatic and almost majestic feel, especially during golden hour.', 'https://youtube.com/watch?v=1')">
+            <div class="img-container"><img src="images/loc1/1.JPG" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_294</div>
+                <h3>KV-70</h3>
+                <p class="loc-brief">Industrial power station. Atmospheric ruins with major decay</p>
             </div>
-            <h1 class="home-title">FORGOTTEN_<span>ARCHIVE</span></h1>
-            <p class="home-lead">
-                A personal archive of abandoned places. I document atmosphere, light, and the
-                remnants people leave behind before buildings disappear for good.
-            </p>
-            <div class="hero-actions">
-                <a href="archive.html" class="yt-btn primary">VISIT_ARCHIVE</a>
-                <a href="about.html" class="yt-btn">ABOUT_PROJECT</a>
+        </div>
+
+        <!-- <div class="card belgie" onclick="openLoc('loc2', 'HFB steel factory', 'This old power plant in the Liège regThe HFB steel factory in Liège is a vast abandoned industrial site that once formed part of the region’s powerful steel industry. Active during the peak of heavy industrial production, the plant played an important role in steel processing and employment in the area. Following the decline of the steel sector, the factory was gradually shut down and left to decay. Today, the complex consists of large production halls, rusting structures, and remnants of machinery, offering a raw and atmospheric insight into Liège’s industrial past and the scale of its former activity.ion once played a key role in supplying electricity to the surrounding industrial sites. Built during the height of heavy industry, it reflects the scale and ambition of the area’s industrial past. Following the decline of local industry, the site was shut down and left to decay. Today, the abandoned structures, empty halls, and remaining technical elements create a striking atmosphere, making it a powerful witness to Liège’s industrial heritage.', 'https://youtube.com/watch?v=2')">
+            <div class="img-container"><img src="images/loc2/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_112</div>
+                <h3>HFB steel factory</h3>
+                <p class="loc-brief">bandoned HFB steel factory in Liège, a remnant of the region’s steel industry.</p>
             </div>
-            <div class="hero-foot">
-                <span>LOG: DATA_DECLASSIFIED</span>
-                <span>NOTICE: EXACT_COORDS REDACTED</span>
+        </div> -->
+
+        <div class="card belgie" onclick="openLoc('loc3', 'Villa Victoria', 'Villa Victoria is an abandoned residence in Belgium with very little known about its history. The property has fallen into significant decay, with much of the structure deteriorating over time. The driveway has collapsed, adding to the sense of abandonment, while the villa itself stands as a silent witness to the past. Despite its ruined state, the building retains a haunting charm, drawing attention from explorers and photographers alike.', 'https://youtube.com/watch?v=3')">
+            <div class="img-container"><img src="images/loc3/1.JPG" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_882</div>
+                <h3>Villa Victoria</h3>
+                <p class="loc-brief">An abandoned villa perched on elevated, mountainous terrain in Belgium.</p>
             </div>
-        </section>
+        </div>
+
+        <div class="card belgie" onclick="openLoc('loc4', 'Charleroi Power Plant', 'The Charleroi power plant is an abandoned industrial site in Belgium, once responsible for supplying electricity to the surrounding area. With its massive halls, rusting machinery, and empty control rooms, the site reflects the decline of heavy industry in the region. Years of neglect have left the plant in a state of advanced decay, yet its scale and industrial architecture make it a striking location for exploration and photography.', 'https://youtube.com/watch?v=4')">
+            <div class="img-container"><img src="images/loc4/1.JPG" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_001</div>
+                <h3>Charleroi Power Plant</h3>
+                <p class="loc-brief">Charleroi power plant: empty halls and rusting machinery.</p>
+            </div>
+        </div>
+
+        <div class="card belgie" onclick="openLoc('loc5', 'The Forgotten Tower', 'Hidden in the open fields near Estinnes, close to the French border, this abandoned site is a striking blend of rural and urban decay. A solitary tower rises amidst a cluster of rundown buildings, all encircled by fences topped with barbed wire. While the tower’s original purpose remains unclear, the surrounding structures are now mostly in ruins. Some parts of the land are still in use, with one building repurposed for hay storage, giving the site a unique mix of abandonment and ongoing rural life. Its secluded location and dramatic decay make it a compelling spot for urbex enthusiasts.', 'https://youtube.com/watch?v=5')">
+            <div class="img-container"><img src="images/loc5/1.JPG" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_009</div>
+                <h3>The Forgotten Tower</h3>
+                <p class="loc-brief">Abandoned tower and ruins in the fields near Estinnes, with some buildings still used for hay.</p>
+            </div>
+        </div>
+
+        <div class="card belgie" onclick="openLoc('loc6', 'Lanaken Manor', 'Hidden in Lanaken, Belgium, this abandoned elderly home is a haunting glimpse into the past. Left untouched for years, some rooms remain frozen in time—beds still made with sheets, wardrobes filled with old clothes, and paintings hanging on the walls. The site captures the eerie quiet of forgotten lives, making it a unique and atmospheric location for exploration.', 'https://www.youtube.com/watch?v=6Zuxzw-ffuo')">
+            <div class="img-container"><img src="images/loc6/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: BE_771</div>
+                <h3>Lanaken Manor</h3>
+                <p class="loc-brief">Abandoned elderly home in Lanaken, frozen in time with bedsheets still on beds and personal belongings left behind.</p>
+            </div>
+        </div>
+
+        <!-- <div class="card frankrijk" onclick="openLoc('loc7', 'HOTEL ECHO', 'Mountain ghosts.', 'https://youtube.com/watch?v=7')">
+            <div class="img-container"><img src="images/loc7/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: FR_332</div>
+                <h3>HOTEL ECHO</h3>
+                <p class="loc-brief">High-altitude resort. Vacated due to unstable terrain.</p>
+            </div>
+        </div> -->
+
+        <!-- <div class="card duitsland" onclick="openLoc('loc8', 'POWER CORE', 'Industrial turbine hall.', 'https://youtube.com/watch?v=8')">
+            <div class="img-container"><img src="images/loc8/1.jpg" onerror="handleMissingImg(this)"></div>
+            <div class="card-info">
+                <div class="ref-id">REF: DE_992</div>
+                <h3>POWER CORE</h3>
+                <p class="loc-brief">Decommissioned power plant. Asbestos hazard detected.</p>
+            </div>
+        </div> -->
+
+        <div class="card corrupted-card">
+            <div class="img-container missing-data-aesthetic">
+                <span>[ DATA_ENCRYPTED ]</span>
+            </div>
+            <div class="card-info">
+                <div class="ref-id">REF: ERR_404</div>
+                <h3>[ REDACTED ]</h3>
+                <p class="loc-brief">Unauthorized access. Signal lost.</p>
+            </div>
+        </div>
     </main>
-
-    <section class="home-sections">
-        <div class="home-card">
-            <div class="section-title">Archive Overview</div>
-            <p class="section-text">
-                This site is my field journal. I explore, photograph, and write short debriefs
-                so each location feels like a memory and not just a pin on a map.
-            </p>
-            <div class="stats-row">
-                <div class="stat-chip">
-                    <span class="stat-value">06</span>
-                    ACTIVE SITES
-                </div>
-                <div class="stat-chip">
-                    <span class="stat-value">04</span>
-                    SECTORS LOGGED
-                </div>
-                <div class="stat-chip">
-                    <span class="stat-value">2022-26</span>
-                    FIELD RANGE
-                </div>
-            </div>
-        </div>
-        <div class="home-card"> 
-            <div class="section-title">Field Protocol</div>
-            <div class="protocol">
-                <span>NO EXACT COORDINATES SHARED</span>
-                <span>LEAVE NO TRACE, TAKE NO TRACE</span>
-                <span>RESPECT PRIVATE PROPERTY & LOCAL LAWS</span>
-            </div>
-            <div class="section-note">
-                This archive is visual documentation only. All access is at your own risk.
-            </div>
-        </div>
-    </section>
-
-    <section class="home-gallery">
-        <div class="section-title">Featured Locations</div>
-        <div class="feature-grid">
-            <a class="feature-card" href="location.html?folder=loc1&title=KV-70&desc=Power%20Plant%20High%20Voltage%2C%20also%20known%20as%20KV-70%2C%20is%20an%20abandoned%20Belgian%20power%20station%20that%20once%20distributed%20electricity%20to%20several%20nearby%20steel%20factories.%20Closed%20as%20heavy%20industry%20declined%20in%20the%20region%2C%20the%20site%20is%20now%20a%20striking%20example%20of%20industrial%20heritage.%20The%20building%20is%20split%20between%20a%20former%20power%20generation%20hall%20and%20an%20electrical%20distribution%20station.%20While%20much%20of%20the%20machinery%20is%20gone%2C%20the%20remaining%20control%20panels%2C%20clock%2C%20and%20large%20windowed%20hall%20still%20convey%20the%20scale%20and%20atmosphere%20of%20the%20site.%20Natural%20light%20flooding%20through%20the%20tall%20bay%20windows%20gives%20the%20empty%20space%20a%20dramatic%20and%20almost%20majestic%20feel%2C%20especially%20during%20golden%20hour.&yt=https%3A%2F%2Fyoutube.com%2Fwatch%3Fv%3D1" style="background-image: url('images/loc1/1.JPG');">
-                <div class="feature-overlay">
-                    <div class="ref-id">BE_294</div>
-                    <h3>KV-70</h3>
-                    <p>Industrial power station, vast halls and control remnants.</p>
-                </div>
-            </a>
-            <a class="feature-card" href="location.html?folder=loc4&title=Charleroi%20Power%20Plant&desc=The%20Charleroi%20power%20plant%20is%20an%20abandoned%20industrial%20site%20in%20Belgium%2C%20once%20responsible%20for%20supplying%20electricity%20to%20the%20surrounding%20area.%20With%20its%20massive%20halls%2C%20rusting%20machinery%2C%20and%20empty%20control%20rooms%2C%20the%20site%20reflects%20the%20decline%20of%20heavy%20industry%20in%20the%20region.%20Years%20of%20neglect%20have%20left%20the%20plant%20in%20a%20state%20of%20advanced%20decay%2C%20yet%20its%20scale%20and%20industrial%20architecture%20make%20it%20a%20striking%20location%20for%20exploration%20and%20photography.&yt=https%3A%2F%2Fyoutube.com%2Fwatch%3Fv%3D4" style="background-image: url('images/loc4/1.JPG');">
-                <div class="feature-overlay">
-                    <div class="ref-id">BE_001</div>
-                    <h3>Charleroi Power Plant</h3>
-                    <p>Decommissioned site with heavy decay and machinery.</p>
-                </div>
-            </a>
-            <a class="feature-card" href="location.html?folder=loc6&title=Lanaken%20Manor&desc=Hidden%20in%20Lanaken%2C%20Belgium%2C%20this%20abandoned%20elderly%20home%20is%20a%20haunting%20glimpse%20into%20the%20past.%20Left%20untouched%20for%20years%2C%20some%20rooms%20remain%20frozen%20in%20time%2C%20with%20beds%20still%20made%20with%20sheets%2C%20wardrobes%20filled%20with%20old%20clothes%2C%20and%20paintings%20hanging%20on%20the%20walls.%20The%20site%20captures%20the%20quiet%20presence%20of%20forgotten%20lives%2C%20making%20it%20a%20unique%20and%20atmospheric%20location%20for%20exploration.&yt=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D6Zuxzw-ffuo" style="background-image: url('images/loc6/1.jpg');">
-                <div class="feature-overlay">
-                    <div class="ref-id">BE_771</div>
-                    <h3>Lanaken Manor</h3>
-                    <p>Frozen-in-time interiors, personal belongings intact.</p>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <section class="home-cta">
-        <div class="cta-card">
-            <div class="section-title">Explore The Archive</div>
-            <p class="section-text">
-                Browse the full collection of locations, photos, and debriefings.
-            </p>
-            <a href="archive.html" class="yt-btn primary">OPEN_ARCHIVE</a>
-        </div>
-    </section>
 
     <script type="text/javascript" src="script.js"></script>
 </body>
