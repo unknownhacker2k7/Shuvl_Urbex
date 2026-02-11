@@ -1,10 +1,5 @@
 let currentSlide = 0;
 let slides = [];
-let archiveCards = [];
-
-document.addEventListener('DOMContentLoaded', () => {
-    initArchive();
-});
 
 function openLoc(folder, title, desc, ytUrl) {
     const url = `location.html?folder=${folder}&title=${encodeURIComponent(title)}&desc=${encodeURIComponent(desc)}&yt=${encodeURIComponent(ytUrl)}`;
@@ -24,67 +19,6 @@ function filterLand(land) {
         } else {
             card.style.display = (land === 'all' || card.classList.contains(land)) ? 'block' : 'none';
         }
-    });
-    setActiveFilter(land);
-}
-
-function initArchive() {
-    const archiveGrid = document.querySelector('.archive-grid');
-    if (!archiveGrid) return;
-
-    archiveCards = Array.from(archiveGrid.querySelectorAll('.card:not(.corrupted-card)'));
-    setupThumbs(archiveGrid);
-    setupFilterButtons();
-    setActiveFilter('all');
-}
-
-function setupFilterButtons() {
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    if (!filterButtons.length) return;
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => filterLand(button.dataset.filter));
-    });
-}
-
-function setupThumbs(archiveGrid) {
-    const thumbs = archiveGrid.querySelectorAll('img[data-full]');
-    thumbs.forEach(img => {
-        const candidates = [];
-        if (img.dataset.thumb) candidates.push(img.dataset.thumb);
-        if (img.dataset.thumbAlt) candidates.push(img.dataset.thumbAlt);
-        if (img.dataset.full) candidates.push(img.dataset.full);
-        if (!candidates.length) return;
-
-        const currentSrc = img.getAttribute('src');
-        let index = candidates.indexOf(currentSrc);
-        if (index === -1) {
-            index = 0;
-            img.src = candidates[0];
-        }
-
-        const tryNext = () => {
-            index += 1;
-            if (index < candidates.length) {
-                img.src = candidates[index];
-                return;
-            }
-            handleMissingImg(img);
-        };
-
-        img.addEventListener('error', tryNext);
-
-        if (img.complete && img.naturalWidth === 0) {
-            tryNext();
-        }
-    });
-}
-
-function setActiveFilter(land) {
-    const buttons = document.querySelectorAll('[data-filter]');
-    buttons.forEach(button => {
-        const isActive = button.dataset.filter === land;
-        button.classList.toggle('active', isActive);
-        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 }
 
